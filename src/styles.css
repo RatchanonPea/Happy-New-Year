@@ -684,3 +684,14 @@ html, body { max-width: 100%; overflow-x: clip; }
   .card-xl .greet, .card-xl .wish { font-size: clamp(.8rem, 4.4vh, 1rem); }
   .card-xl .mid { gap: .4rem; }
 }
+
+/* การ์ดผลในหน้าจัดการบนมือถือ: ไม่ใช้สัดส่วนตายตัว ตัวชื่อใหญ่อ่านง่าย */
+@media (max-width: 760px) {
+  .draw-panel .card { width: 100%; aspect-ratio: auto; padding: 1.3rem 1rem 1.1rem; gap: .3rem; }
+  .draw-panel .card::before, .draw-panel .card::after { display: none; }
+  .draw-panel .card .mid { gap: .7rem; padding: .7rem 0; }
+  .draw-panel .card .who { font-size: clamp(2rem, 9.5vw, 3rem); }
+  .draw-panel .card .num { font-size: clamp(1.4rem, 6vw, 1.9rem); }
+  .draw-panel .card .greet { font-size: .95rem; }
+  .draw-panel .card .wish { font-size: .95rem; }
+}

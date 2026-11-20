@@ -695,3 +695,93 @@ html, body { max-width: 100%; overflow-x: clip; }
   .draw-panel .card .greet { font-size: .95rem; }
   .draw-panel .card .wish { font-size: .95rem; }
 }
+
+/* ================= การ์ดผลใหม่: โปร่ง น่ารัก เข้าธีมปีใหม่ ================= */
+.card-slot { padding-top: 1rem; }
+.card {
+  padding: 2.4rem 1.6rem 1.6rem; border-radius: 24px; gap: .2rem;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 200, 87, .22) 0 2px, transparent 3px) 0 0 / 34px 34px,
+    radial-gradient(circle at 62% 68%, rgba(240, 64, 95, .12) 0 2px, transparent 3px) 0 0 / 34px 34px,
+    var(--paper);
+  box-shadow: 0 0 0 5px var(--gold), 0 0 0 7px rgba(168, 28, 60, .55), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(255, 200, 87, .6), 0 22px 46px rgba(0, 0, 0, .4);
+}
+.card::before, .card::after { content: none; }
+
+/* ริบบิ้นแดงพาดหัวการ์ด */
+.card .greet {
+  position: absolute; top: -1em; left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap;
+  padding: .38em 1.7em; border-radius: 6px; color: #fff; font-size: .95rem; letter-spacing: .02em;
+  background: linear-gradient(#f45a77, var(--red)); box-shadow: 0 5px 0 var(--red-d), 0 8px 14px rgba(0, 0, 0, .25);
+}
+.card .greet::before, .card .greet::after {
+  content: ""; position: absolute; top: .35em; width: 1.1em; height: 100%; z-index: -1; background: var(--red-d);
+}
+.card .greet::before { left: -.8em; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 45% 50%); }
+.card .greet::after { right: -.8em; clip-path: polygon(0 0, 100% 0, 55% 50%, 100% 100%, 0 100%); }
+
+/* ชื่อ + เส้นทองประดับ */
+.card .mid { gap: .85rem; padding: .9rem 0 .6rem; }
+.card .who { position: relative; padding-bottom: .55em; }
+.card .who::after {
+  content: "✦"; position: absolute; left: 50%; bottom: -.1em; transform: translateX(-50%); font-size: .45em; line-height: 1; color: var(--gold); padding: 0 .6em; background: var(--paper);
+}
+.card .who::before {
+  content: ""; position: absolute; left: 14%; right: 14%; bottom: .22em; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+/* เลขเป็นเหรียญทอง */
+.card .num {
+  color: #5a2a00; background: linear-gradient(160deg, #ffe9a0, #ffc857 55%, #e8a31f);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--gold), 0 6px 10px rgba(168, 28, 60, .25); padding: .1rem 1.3rem;
+}
+.card .wish { color: #7a5b9a; font-size: 1rem; padding-top: .4rem; }
+.card .wish:not(:empty)::before { content: "✨ "; }
+.card .wish:not(:empty)::after { content: " ✨"; }
+.card .wish:empty::before, .card .wish:empty::after { content: none; }
+
+/* ประกายมุมการ์ด */
+.card .orn { position: absolute; color: var(--gold); line-height: 1; pointer-events: none; animation: twinkle 2.4s ease-in-out infinite; }
+.card .o1 { left: 7%; top: 22%; font-size: 1.1em; }
+.card .o2 { right: 8%; top: 30%; font-size: .95em; color: var(--red); animation-delay: .6s; }
+.card .o3 { left: 9%; bottom: 14%; font-size: .9em; color: var(--red); animation-delay: 1.2s; }
+.card .o4 { right: 7%; bottom: 18%; font-size: 1.2em; animation-delay: 1.8s; }
+
+/* ขนาดใหญ่ (จอแสดงผล): ริบบิ้นและกรอบขยายตาม */
+.card-xl .card { padding: 4.2vw 5vw 3vw; box-shadow: 0 0 0 8px var(--gold), 0 0 0 11px rgba(168, 28, 60, .55), inset 0 0 0 5px var(--paper), inset 0 0 0 8px rgba(255, 200, 87, .6), 0 30px 80px rgba(0, 0, 0, .5); }
+.card-xl .card .orn { font-size: 2.2vw; }
+@media (max-width: 760px) {
+  .card .greet { font-size: .9rem; }
+  .draw-panel .card, .card-xl .card { padding-top: 2.4rem; }
+  .card-xl .card { box-shadow: 0 0 0 5px var(--gold), 0 0 0 7px rgba(168, 28, 60, .55), inset 0 0 0 4px var(--paper), inset 0 0 0 6px rgba(255, 200, 87, .6), 0 20px 50px rgba(0, 0, 0, .5); }
+  .card-xl .card .orn { font-size: 1.1rem; }
+  .card .who { padding-bottom: .5em; }
+}
+@media (max-height: 520px) and (min-width: 700px) {
+  .card .greet { font-size: .85rem; }
+  .card-xl .card { padding-top: 2.2rem; }
+  .card-xl .card .orn { font-size: 1rem; }
+}
+
+/* ---------- มาสคอตเกาะริบบิ้น + ขนาดการ์ดบนจอแสดงผล ---------- */
+.mascot {
+  position: absolute; left: 50%; bottom: calc(100% - .55em); width: 4.8em; height: auto; z-index: 3; pointer-events: none;
+  transform-origin: 50% 100%; filter: drop-shadow(0 4px 5px rgba(0, 0, 0, .3));
+  animation: mascot-pop .7s cubic-bezier(.3, 1.6, .5, 1) .3s both, mascot-bob 3.2s ease-in-out 1.1s infinite;
+}
+@keyframes mascot-pop { from { opacity: 0; transform: translateX(-50%) translateY(60%) scale(.5); } to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); } }
+@keyframes mascot-bob { 0%, 100% { transform: translateX(-50%) rotate(-3deg); } 50% { transform: translateX(-50%) translateY(-3%) rotate(3deg); } }
+.card-slot:not(.wheel-slot) { padding-top: 4.6rem; }
+.card-xl.card-slot:not(.wheel-slot) { padding-top: clamp(5rem, 11vw, 9rem); }
+
+/* จอเดสก์ท็อป: การ์ดผลต้องไม่สูงเกินจอ */
+.card-xl .card { aspect-ratio: 3 / 2; width: min(88vw, calc((100dvh - 15rem) * 1.5), 1100px); }
+@media (max-width: 760px) {
+  .card-xl .card { aspect-ratio: auto; width: min(86vw, 420px); }
+  .card-slot:not(.wheel-slot) { padding-top: 4.2rem; }
+}
+@media (max-height: 520px) and (min-width: 700px) {
+  .card-xl .card { aspect-ratio: auto; width: min(72vw, 560px); }
+  .card-xl.card-slot:not(.wheel-slot) { padding-top: 3.8rem; }
+}
+
+.card-xl.wheel-slot.compact { display: none; }

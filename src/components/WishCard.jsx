@@ -1,4 +1,5 @@
 import Wheel from './Wheel.jsx';
+import Mascot, { useMascotIndex } from './Mascots.jsx';
 import { getGreetingYear } from '../lib/year.js';
 
 /**
@@ -7,6 +8,7 @@ import { getGreetingYear } from '../lib/year.js';
  * - ประกาศผล (landed) หรือรายชื่อน้อย/มากเกินไป: การ์ดอวยพร
  */
 export default function WishCard({ card, phase, seq, xl = false, cardRef, wheelItems, winnerIndex }) {
+  const mascotIndex = useMascotIndex(seq);
   const spinning = phase === 'spinning';
   if (wheelItems && (spinning || phase === 'idle')) {
     return <Wheel items={wheelItems} winnerIndex={winnerIndex} mode={spinning ? 'spin' : 'idle'} xl={xl} />;
@@ -22,7 +24,14 @@ export default function WishCard({ card, phase, seq, xl = false, cardRef, wheelI
   const cardEl = (
     <div className={`card-slot${xl ? ' card-xl' : ''}`}>
       <article key={phase === 'landed' ? seq : 'x'} ref={cardRef} className={cls}>
-        <p className="greet">สุขสันต์วันปีใหม่ {getGreetingYear().be}</p>
+        <span className="orn o1" aria-hidden="true">✦</span>
+        <span className="orn o2" aria-hidden="true">✧</span>
+        <span className="orn o3" aria-hidden="true">✧</span>
+        <span className="orn o4" aria-hidden="true">✦</span>
+        <p className="greet">
+          {phase === 'landed' && <Mascot index={mascotIndex} />}
+          สุขสันต์วันปีใหม่ {getGreetingYear().be}
+        </p>
         <div className="mid">
           <div className="who">{who}</div>
           <div className="num">{num}</div>

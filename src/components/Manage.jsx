@@ -15,8 +15,11 @@ export default function Manage({ state, draw, list, actions, onOpenDisplay }) {
           <span className="spark sp1" aria-hidden="true">✦</span>
           <span className="spark sp2" aria-hidden="true">✧</span>
           <span className="spark sp3" aria-hidden="true">✦</span>
-          <h1><span className="th">สุขสันต์ปีใหม่</span> <span className="year">{getGreetingYear().be}</span></h1>
-          <p className="en" aria-hidden="true">Happy New Year {getGreetingYear().ce}</p>
+          <h1>
+            <span className="th">Happy New Year</span>
+            <span className="year">{getGreetingYear().ce}</span>
+            <span className="th-sub">สุขสันต์ปีใหม่ {getGreetingYear().be}</span>
+          </h1>
         </div>
         <button type="button" className="btn btn-gold fs" onClick={onOpenDisplay}>
           <span aria-hidden="true">⛶</span> <span className="fs-label">เปิดจอแสดงผลเต็มจอ</span>

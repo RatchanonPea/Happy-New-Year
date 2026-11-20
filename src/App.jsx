@@ -21,7 +21,7 @@ export default function App({ initialView = 'gift' }) {
   const cardRef = useRef(null);
 
   useEffect(() => initConfetti(canvasRef.current), []);
-  useEffect(() => { document.title = `การ์ดอวยพรปีใหม่ ${getGreetingYear().be}`; }, []);
+  useEffect(() => { document.title = `จับฉลากปีใหม่ ${getGreetingYear().be}`; }, []);
 
   const onWin = useCallback((h) => setState((s) => ({ ...s, history: [h, ...s.history] })), [setState]);
   const draw = useDraw({

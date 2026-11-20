@@ -785,3 +785,25 @@ html, body { max-width: 100%; overflow-x: clip; }
 }
 
 .card-xl.wheel-slot.compact { display: none; }
+
+/* หัวเรื่อง: อังกฤษใหญ่ด้านบน ไทยเล็กอยู่ใต้ */
+.top .th { letter-spacing: .01em; }
+.top .th-sub {
+  flex: 1 0 100%; text-align: center; margin-top: .25rem; font-size: clamp(.95rem, 2vw, 1.25rem); font-weight: 500; letter-spacing: .12em;
+  color: var(--gold); text-shadow: 0 1px 8px rgba(0, 0, 0, .4);
+}
+.top .th-sub::before, .top .th-sub::after { content: "✦"; font-size: .7em; margin: 0 .7em; opacity: .85; vertical-align: .12em; }
+@media (max-width: 760px) {
+  .top .th-sub { font-size: .95rem; letter-spacing: .1em; margin-top: .35rem; }
+}
+
+/* มือถือ: หัวเรื่องอังกฤษไม่ชนปุ่มเต็มจอมุมขวา */
+@media (max-width: 760px) {
+  .top h1 { font-size: 1.95rem; }
+  .brand { padding: 0 2.6rem; }
+}
+@media (max-width: 360px) {
+  .top h1 { font-size: 1.7rem; }
+}
+@media (max-width: 420px) { .top h1 { font-size: 1.8rem; } }
+@media (max-width: 360px) { .top h1 { font-size: 1.5rem; white-space: nowrap; } .brand { padding: 0 2.4rem; } }
